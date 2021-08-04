@@ -3,8 +3,9 @@ from toy_robot import ToyRobot
 
 def run_game():
     print("Game Start...")
+    robot = ToyRobot()
     while True:
-        proc_cmd()
+        proc_cmd(robot)
 
 
 if __name__ == '__main__':

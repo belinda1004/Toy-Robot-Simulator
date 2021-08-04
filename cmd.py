@@ -2,7 +2,7 @@
 Check and execute commands
 """
 
-def proc_cmd():
+def proc_cmd(robot):
     command_str = input("Command: ").upper()
     command_list = command_str.split(" ")
     command = command_str[0]
@@ -17,15 +17,24 @@ def proc_cmd():
         return
 
     if command == "PLACE":
-        pass
+        try:
+            x, y, facing = "".join(command_list[1:]).split((","))
+            x = int(x)
+            y = int(y)
+        except ValueError:
+            print("Invalid arguments.")
+            return
+        info = robot.place(x, y, facing)
     elif command == "MOVE":
-        pass
+        info = robot.move()
     elif command == "LEFT":
-        pass
+        info = robot.left()
     elif command == "RIGHT":
-        pass
+        info = robot.right()
     elif command == "REPORT":
-        pass
+        info = robot.report()
+
+    print(info)
     return
 
 
