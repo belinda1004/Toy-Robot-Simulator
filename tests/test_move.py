@@ -215,7 +215,7 @@ class MoveUnitTest(unittest.TestCase):
 
     # The robot move in a circle on the edge of the table
     def test_circle(self):
-        robot = ToyRobot(0)
+        robot = ToyRobot()
 
         command = "PLACE 0, 4, EAST\n" \
                 + (("MOVE\n" * 4) \
