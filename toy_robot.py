@@ -1,5 +1,19 @@
 """
 The definition of the ToyRobot
+The toy robot has four main properties:
+(xPos, yPos): the coordinate used to describe the robot's position on the table top of dimensions 5 units * 5 units.
+              (0, 0): the SOUTH WEST most corner
+              (4, 4): the NORTH EAST most corner
+facing: the robot's facing direction NORTH, SOUTH, EAST or WEST
+placed: whether a valid PLACE command has been executed
+
+The toy robot has 5 public methods, all the methods return the execution result in the form of a string.
+
+place(x ,y, facing): place the robot on the table in position (x,y) and facing direction.
+move(): move the toy robot one unit forward in the direction it is currently facing.
+left(): rotate the robot 90 degrees left without changing the position.
+right(): rotate the robot 90 degrees right without changing the position.
+report(): announce the xPos, yPos and facing of the robot.
 """
 
 TABLE_WIDTH = 5
@@ -8,7 +22,7 @@ DIRECTIONS_IN_ORDER = ["NORTH", "EAST", "SOUTH", "WEST"]  # clockwise
 DIRECTIONS = {"NORTH": (0, 1),
               "SOUTH": (0, -1),
               "EAST": (1, 0),
-              "WEST": (-1, 0)}
+              "WEST": (-1, 0)}  # for a specific facing direction, the position changes in x and y axles in one move.
 
 class ToyRobot():
     def __init__(self):
