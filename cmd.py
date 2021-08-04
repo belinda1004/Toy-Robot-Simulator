@@ -5,20 +5,20 @@ Check and execute commands
 def proc_cmd(robot):
     command_str = input("Command: ").upper()
     command_list = command_str.split(" ")
-    command = command_str[0]
-
+    command = command_list[0]
+    # print(command, command_list)
     if not command in ["PLACE", "MOVE", "LEFT", "RIGHT", "REPORT"]:
-        print("Unknown Command.")
+        print("Unknown command.")
         return
 
     if (command != "PLACE" and len(command_list) > 1) or \
-        (command == "PLACE" and len(command_list) != 4):
+        (command == "PLACE" and len(command_list) < 2):
         print("Invalid arguments.")
         return
 
     if command == "PLACE":
         try:
-            x, y, facing = "".join(command_list[1:]).split((","))
+            x, y, facing = "".join(command_list[1:]).split(",")
             x = int(x)
             y = int(y)
         except ValueError:
